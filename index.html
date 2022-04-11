@@ -47,6 +47,23 @@
         </div>
 
         <input type="button" value="night" onclick="
+            //만약 이 버튼의 value 값이 night이라면 아래 코드가 실행되고
+            if(this.value === 'night'){
+                document.querySelector('body').style.backgroundColor = 'grey';
+                document.querySelector('body').style.color = 'white';
+                 //이 버튼의 value 값을 day로 변경
+                this.value = 'day';
+            }else {
+                //아니라면 아래 코드가 실행된다
+                document.querySelector('body').style.backgroundColor = 'white';
+                document.querySelector('body').style.color = 'black';
+                //이 버튼의 value값을 night로 변경
+                this.value = 'night';
+            }
+        "
+        >
+        
+        <!-- <input type="button" value="night" onclick="
             document.querySelector('body').style.backgroundColor = 'grey';
 
             document.querySelector('body').style.color = 'white';
@@ -58,6 +75,6 @@
 
         document.querySelector('body').style.color = 'black';
         "
-        >
+        > -->
     </body>  
 </html>
