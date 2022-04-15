@@ -1,0 +1,33 @@
+<!--... 누르면 전체 글 보이게 하기-->
+<html>
+    <body>
+        <!--방법1-->
+        Javascript is <span 
+        style="
+            background-color: rgb(219, 217, 217);
+            padding: 0 5px;
+            cursor: pointer;
+        " 
+
+        onclick="
+            document.querySelector('#hidden').style.display='inline';
+            this.style.display='none';
+        ">...</span> 
+        <span id="hidden" style="display:none;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+
+        <hr>
+        <!--방법2-->
+        Javascript is <span 
+        style="
+            background-color: rgb(219, 217, 217);
+            padding: 0 5px;
+            cursor: pointer;
+        " 
+
+        onclick="
+            this.style.display='none';
+            document.querySelector('#content').innerHTML = `Lorem ipsum dolor sit amet consectetur adipisicing elit.`
+        ">...</span> 
+        <span id="content"></span>
+    </body>
+</html>
