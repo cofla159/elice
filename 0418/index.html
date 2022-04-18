@@ -1,81 +1,48 @@
 <!doctype html>
 <html>
     <head>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <title>엘리스 실습 페이지</title>
-        <meta charset="utf-8">
-        <style>
-            h1{
-                border-bottom:10px solid grey;
-                padding: 50px;
-                margin-bottom: 0;
-            }
-            h1 a{
-                text-decoration: none;
-            }
-            ol{
-                border-right:10px solid pink;
-                margin-top: 0;
-            }
-            #container{
-                display:grid;
-                grid-template-columns: 150px 1fr;
-            }
-        </style>
-                <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KMCT0WEKJK"></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-KMCT0WEKJK');
+            let topics = [
+                {id:1, title:'html', body:'html is ..'}, 
+                {id:2, title:'css', body:'css is ..'}
+            ]
         </script>
     </head>
     <body>
-        <h1><a href="index.html">앨리스 이론교육</a></h1>
-
-        <div id="container">
-            <ol>
-                <li><a href="1.html">html</a></li>
-                <li><a href="2.html">css</a></li>
-                <li><a href="3.html">javascript</a></li>
-            </ol>
-            <div>
-            <h2>web</h2>
-            hello web!
-            </div>
-        </div>
-        <script src="daynight.js"></script> 
-        <input type="button" value="night" onclick="
-            //만약 이 버튼의 value 값이 night이라면 아래 코드가 실행되고
-            if(this.value === 'night'){
-                dayNight('night');
-                 //이 버튼의 value 값을 day로 변경
-                this.value = 'day';
-
-                //여기도 변경할 수 있는데 0413 안들엇네..
-            }else {
-                //아니라면 아래 코드가 실행된다
-                dayNight('day');
-                //이 버튼의 value값을 night로 변경
-                this.value = 'night';
-            }
-        "
-        >
+        <h1><a href="index.html">WEB</a></h1>
+        <nav>  
+            <ol></ol>
+        </nav>
+        <article>
+            <h2>Welcome</h2>
+            Hello, WEB
+        </article>    
         
-        <!-- <input type="button" value="night" onclick="
-            document.querySelector('body').style.backgroundColor = 'grey';
-
-            document.querySelector('body').style.color = 'white';
-        "
-        >
-
-        <input type="button" value="day" onclick="
-        document.querySelector('body').style.backgroundColor = 'white';
-
-        document.querySelector('body').style.color = 'black';
-        "
-        > -->
-    </body>  
+        <script>
+            //함수로 만들면 나중에 topic에 데이터 추가하고 나서 갱신할 때 nav 호출만 하면 됨
+            let nav = ()=>{
+                let navTag = '';
+                for(let i = 0; i<topics.length; i++){
+                    navTag = navTag + `
+                    <li>
+                        <a href="/read/${topics[i].id}" id="${topics[i].id}" onclick="
+                            event.preventDefault();
+                            console.log(event.target.id);
+                            for(let i=0; i<topics.length; i++){
+                                if(topics[i].id === Number(event.target.id)){
+                                    document.querySelector('article').innerHTML = '<h2>'+topics[i].title+'</h2>'+topics[i].body;
+                                    break;
+                                }
+                            }
+                        ">
+                            ${topics[i].title}
+                        </a>
+                    </li>`;
+                }
+                document.querySelector('nav ol').innerHTML = navTag;
+                console.log(navTag);
+            }
+            nav();
+        </script>
+    </body>
 </html>
