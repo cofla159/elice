@@ -46,22 +46,18 @@
             hello web!
             </div>
         </div>
-
+        <script src="daynight.js"></script> 
         <input type="button" value="night" onclick="
             //만약 이 버튼의 value 값이 night이라면 아래 코드가 실행되고
             if(this.value === 'night'){
-                //document.querySelector('body').style.backgroundColor = 'grey';
-                $('body').css('background-color', 'black');
-                //document.querySelector('body').style.color = 'white';
-                $('body').css('color', 'white');
+                dayNight('night');
                  //이 버튼의 value 값을 day로 변경
                 this.value = 'day';
 
                 //여기도 변경할 수 있는데 0413 안들엇네..
             }else {
                 //아니라면 아래 코드가 실행된다
-                document.querySelector('body').style.backgroundColor = 'white';
-                document.querySelector('body').style.color = 'black';
+                dayNight('day');
                 //이 버튼의 value값을 night로 변경
                 this.value = 'night';
             }
