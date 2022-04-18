@@ -14,7 +14,7 @@ function day() {
         as[i].style.color='black';
     }
 }
-function dayNight(mode) {
+export function dayNight(mode) {
     if(mode === 'night'){
         night();
     } else{
