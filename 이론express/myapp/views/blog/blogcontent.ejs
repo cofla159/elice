@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html land="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=form, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>블로그 읽기</h1>
+    <h3><%=content.title%></h3>
+    <p><%=content.content%></p>
+    <button id="list">목록으로</button>
+    <button id="update" data-doc="<%=content.no%>">글 수정하기</button>
+    <button id = "delete" data-doc="<%=content.no%>">글 삭제하기</button>
+    <script src="/javascripts/list.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html land="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=form, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>blog 실습</h1>
+    <br><br>
+    <a href="/blog/write">글쓰기</a>
+    <h3>글 내용들</h3>
+    <% for(let i = 0; i<content.length; i++) {%>
+        <a href="/blog/read/<%=content[i].no%>"><%=content[i].title %></a>
+        <br><br>
+    <% } %>
+</body>
+</html>
